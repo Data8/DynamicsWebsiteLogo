@@ -118,7 +118,9 @@ namespace Data8.Crm.WebsiteLogo.Css
         {
             return text
                 .Split(',')
-                .Select(s => ParseSelector(s.Trim()))
+                .Select(s => s.Trim())
+                .Where(s => !String.IsNullOrEmpty(s))
+                .Select(ParseSelector)
                 .ToArray();
         }
 

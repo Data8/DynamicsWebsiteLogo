@@ -331,7 +331,15 @@ namespace Data8.Crm.WebsiteLogo
         {
             string value;
             if (style.TryGetValue("background-color", out value))
-                return ColorTranslator.FromHtml(value);
+            {
+                try
+                {
+                    return ColorTranslator.FromHtml(value);
+                }
+                catch
+                {
+                }
+            }
 
             return Color.Transparent;
         }
